@@ -14,6 +14,7 @@ def parse_args():
 
     # dataset
     parser.add_argument("--data_dir", type=str, default="./datasets/")
+    parser.add_argument("--data_name", type=str, default="./datasets/celebA")
 
     # training setting
     parser.add_argument("--lr", type=float, default=0.0002)
@@ -29,6 +30,8 @@ def parse_args():
     parser.add_argument("--n_epoch", type=int, default=100)
     parser.add_argument("--num_workers", type=int, default=4)
     parser.add_argument("--batch_size", type=int, default=16)
+    parser.add_argument('--selected_attrs', '--list', nargs='+', help='selected attributes for the CelebA dataset',
+                        default=['Black_Hair', 'Blond_Hair', 'Brown_Hair', 'Male', 'Young'])
 
     # misc
     parser.add_argument("--ckpt_root", type=str, default="./FT_model")

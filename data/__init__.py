@@ -23,6 +23,7 @@ def generate_loader(phase, opt):
 
     kwargs = {
         "batch_size": opt.batch_size,
+        "num_workers": opt.num_workers,
         "shuffle": True,
         "drop_last": True,
     }
