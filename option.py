@@ -17,6 +17,8 @@ def parse_args():
     parser.add_argument("--data_name", type=str, default="./datasets/celebA")
 
     # training setting
+    parser.add_argument('--c_dim', type=int, default=5,
+                        help='dimension of domain labels')
     parser.add_argument("--lr", type=float, default=0.0002)
     parser.add_argument("--cls_lambda", type=float, default=1)
     parser.add_argument("--rec_lambda", type=float, default=10)
