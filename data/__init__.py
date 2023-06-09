@@ -3,7 +3,7 @@ import torch
 import torchvision.transforms as transforms
 
 
-def generate_loader(phase, opt):
+def generate_loader(opt):
     dataset = Dataset
     crop_size = opt.crop_size
     img_size = opt.input_size

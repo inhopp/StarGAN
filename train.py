@@ -24,9 +24,9 @@ class Solver():
             opt.gpu) if torch.cuda.is_available() else "cpu")
         print("device: ", self.dev)
 
-        self.generator = Generator(c_dim=self.c_dim)
+        self.generator = Generator(c_dim=self.c_dim).to(self.dev)
         self.discriminator = Discriminator(
-            img_size=self.img_size, c_dim=self.c_dim)
+            img_size=self.img_size, c_dim=self.c_dim).to(self.dev)
 
         if opt.pretrained:
             load_path = os.path.join(opt.chpt_root, "Gen.pt")
@@ -137,7 +137,7 @@ class Solver():
     def gradient_penalty(self, y, x):
         weight = torch.ones(y.size()).to(self.dev)
         dydx = torch.autograd.grad(
-            outputs=y, inputs=x, grad_outputs=True, create_graph=True, only_inputs=True)[0]
+            outputs=y, inputs=x, grad_outputs=weight, retain_graph=True, create_graph=True, only_inputs=True)[0]
         dydx = dydx.view(dydx.size(0), -1)
         dydx_l2norm = torch.sqrt(torch.sum(dydx**2, dim=1))
 

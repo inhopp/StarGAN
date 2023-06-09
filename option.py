@@ -14,7 +14,7 @@ def parse_args():
 
     # dataset
     parser.add_argument("--data_dir", type=str, default="./datasets/")
-    parser.add_argument("--data_name", type=str, default="./datasets/celebA")
+    parser.add_argument("--data_name", type=str, default="celebA")
 
     # training setting
     parser.add_argument('--c_dim', type=int, default=5,

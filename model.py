@@ -40,7 +40,7 @@ class Generator(nn.Module):
                 num_features, num_features*2, kernel_size=4, stride=2, padding=1, bias=False))
             self.down_blocks.append(nn.InstanceNorm2d(
                 num_features*2, affine=True, track_running_stats=True))
-            self.down_blocks.aapend(nn.ReLU(inplace=True))
+            self.down_blocks.append(nn.ReLU(inplace=True))
             num_features = num_features * 2
 
         self.res_blocks = nn.Sequential(
@@ -107,7 +107,9 @@ class Discriminator(nn.Module):
 
     def forward(self, x):
         x = self.initial_conv(x)
-        x = self.model(x)
+
+        for layer in self.model:
+            x = layer(x)
 
         out_src = self.final_conv1(x)
         out_cls = self.final_conv2(x)
