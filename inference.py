@@ -11,7 +11,7 @@ from torchvision.utils import save_image
 def main(opt):
     dev = torch.device("cuda:{}".format(opt.gpu)
                        if torch.cuda.is_available() else "cpu")
-    ft_path = os.path.join(opt.ckpt_root, "Gen_A.pt")
+    ft_path = os.path.join(opt.ckpt_root, "Gen.pt")
 
     model = Generator(c_dim=5).to(dev)
     model.load_state_dict(torch.load(ft_path))
@@ -30,7 +30,7 @@ def main(opt):
 
     x_fake_list = [x_fixed]
 
-    for c_fixed in c_fixed_list:
+    for c_fixed in c_fixed_list_dev:
         x_fake_list.append(model(x_fixed, c_fixed))
 
     x_concat = torch.cat(x_fake_list, dim=3)
