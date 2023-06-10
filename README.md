@@ -3,9 +3,9 @@ StarGAN from scratch (pytorch)
 
 > [Paper Review](https://inhopp.github.io/paper/Paper19/)
 
-| Sample Image |
-|:-:|
-| ![sample_image](https://github.com/inhopp/inhopp/assets/96368476/369ebb99-ff41-41c3-aa72-3ad8f8ac4bbe)
+| Original Hair | Black Hair |
+|:-:| :-: |
+| ![1](https://github.com/inhopp/inhopp/assets/96368476/a0269bfb-849c-4923-ac3c-aafc41996df2) | ![2](https://github.com/inhopp/inhopp/assets/96368476/63b6281c-e838-4bbd-90fc-dd08672dd38b)
  |
 
 
